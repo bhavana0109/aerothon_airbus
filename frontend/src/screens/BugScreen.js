@@ -12,7 +12,7 @@ const BugScreen = ({ location, history }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState(null);
-
+  const [redirectYes, setRedirectYes] = useState(false);
   const dispatch = useDispatch();
 
   //   const bugRegister = useSelector((state) => state.bugRegister);
@@ -21,10 +21,10 @@ const BugScreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
-    // if (bugInfo) {
-    //   history.push(redirect);
-    // }
-  }, [history, redirect]);
+    if (redirectYes) {
+      history.push(redirect);
+    }
+  }, [history, redirect, redirectYes]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -57,10 +57,19 @@ const BugScreen = ({ location, history }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}></Form.Control>
         </Form.Group>
-        <Button type='submit' variant='primary'>
+        <Button
+          type='submit'
+          variant='primary'
+          onChange={(e) => setRedirectYes(true)}>
           Create
         </Button>
       </Form>
+      <Row className='py-3'>
+        <Col>
+          Don't want to create a bug?{" "}
+          <Link to={redirect ? `/?redirect=${redirect}` : "/"}>Home</Link>
+        </Col>
+      </Row>
     </FormContainer>
   );
 };

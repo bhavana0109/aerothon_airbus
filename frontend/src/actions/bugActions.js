@@ -156,7 +156,7 @@ export const solvedBug = (bug) => async (dispatch, getState) => {
     const { data } = await axios.put(`/api/bugs/${bug._id}/solved`, {}, config);
 
     dispatch({
-      type: BUG_ALLOCATED_SUCCESS,
+      type: BUG_SOLVED_SUCCESS,
       payload: data,
     });
   } catch (error) {
@@ -166,7 +166,7 @@ export const solvedBug = (bug) => async (dispatch, getState) => {
         : error.message;
 
     dispatch({
-      type: BUG_ALLOCATED_FAIL,
+      type: BUG_SOLVED_FAIL,
       payload: message,
     });
   }
