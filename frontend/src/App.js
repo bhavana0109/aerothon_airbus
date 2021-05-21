@@ -19,6 +19,7 @@ import UserEditScreen from "../src/screens/UserEditScreen";
 import ProductListScreen from "../src/screens/ProductListScreen";
 import ProductEditScreen from "../src/screens/ProductEditScreen";
 import OrderListScreen from "../src/screens/OrderListScreen";
+import BugScreen from "../src/screens/BugScreen";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Container>
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
+          <Route path='/bugs' component={BugScreen} />
           <Route path='/contactus' component={ContactUs} />
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/shipping' component={ShippingScreen} />

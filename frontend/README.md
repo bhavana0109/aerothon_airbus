@@ -1,3 +1,17 @@
+Run
+
+## `npm install`
+
+in project location and also /frontend
+
+Run
+
+## `npm run dev`
+
+to concurrently run server and client (backend and frontend)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
